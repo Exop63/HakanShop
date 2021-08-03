@@ -20,6 +20,7 @@ export class User {
 
     @Column()
     lastName: string;
-
+    @Column()
+    phone: string;
 
 }

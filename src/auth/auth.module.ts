@@ -5,9 +5,15 @@ import { JwtStrategy } from './jwt.strategy';
 import { AuthService } from './auth.service';
 import { jwtSignOptions } from './constant';
 import { UserModule } from 'src/user/user.module';
+import { CategoriesModule } from 'src/categories/categories.module';
 
 @Module({
-  imports: [UserModule, PassportModule, JwtModule.register(jwtSignOptions)],
+  imports: [
+    UserModule,
+    CategoriesModule,
+    PassportModule,
+    JwtModule.register(jwtSignOptions),
+  ],
   providers: [AuthService, JwtStrategy],
   exports: [AuthService, JwtModule],
 })

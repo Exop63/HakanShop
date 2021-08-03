@@ -10,7 +10,10 @@ import { Product } from './products/entities/product.entity';
 import { CategoriesModule } from './categories/categories.module';
 
 @Module({
-  imports: [AuthModule, UserModule,
+  imports: [
+    AuthModule,
+    UserModule,
+    CategoriesModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -21,9 +24,8 @@ import { CategoriesModule } from './categories/categories.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([User,Product]),
+    TypeOrmModule.forFeature([User, Product]),
     ProductsModule,
-    CategoriesModule
   ],
   controllers: [AppController],
   providers: [AppService],
