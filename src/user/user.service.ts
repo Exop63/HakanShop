@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import BaseService from 'src/base.service';
 import { Repository } from 'typeorm';
@@ -13,5 +13,24 @@ export class UserService extends BaseService {
     protected repository: Repository<User>
   ) {
     super(repository);
+  }
+
+  getUser(username): User | any {
+    try {
+      return this.repository.findOne({
+        where: [
+          {
+            username
+          },
+          // {
+          //     slug: term
+          // }
+        ],
+      });
+    } catch (error) {
+      throw new BadRequestException('Invalid user');
+
+    }
+
   }
 }

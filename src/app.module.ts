@@ -19,7 +19,7 @@ import { CategoriesModule } from './categories/categories.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '12345678',
+      password: '',
       database: 'store',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
